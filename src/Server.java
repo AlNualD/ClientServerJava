@@ -11,8 +11,15 @@ public class Server {
             System.out.println("Client accepted " + (counter++));
 
             OutputStreamWriter writer =  new OutputStreamWriter(clientSocket.getOutputStream());
-            writer.write("<h1>header1</h1>");
+            BufferedReader reader = new BufferedReader( new InputStreamReader(clientSocket.getInputStream()));
+
+            String req = reader.readLine();
+            String res = "#" + counter + ", Mess length " + req.length();
+            writer.write(res + "\n");
             writer.flush();
+
+            reader.close();
+            writer.close();
             clientSocket.close();
 
 
