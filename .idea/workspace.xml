@@ -38,7 +38,20 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.ChatServer">
+    <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chat.server.ChatServer" />
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chat.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client" />
       <module name="ClientServerJava" />
@@ -61,6 +74,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ChatServer" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
       </list>
@@ -112,22 +126,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1579196625863" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1579427446457">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1579524873961">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579427446457" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1579427446456">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579524873961" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1579524873961">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579427446456" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1579427446456">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579524873961" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1579524873961">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579427446456" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1579427446457">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579524873961" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1579524873961">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579427446457" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579524873961" />
     <state x="277" y="0" key="SettingsEditor" timestamp="1579428837943">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
