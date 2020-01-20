@@ -4,6 +4,7 @@ import network.pckg.TCPConnectionListener;
 
 import java.io.*;
 import  java.net.*;
+import java.util.ArrayList;
 
 /**
  * основной класс сервера для чата
@@ -14,7 +15,8 @@ public class ChatServer implements TCPConnectionListener {
 
 
     }
-
+    //список подключенных соединений
+    private final ArrayList<TCPConnection> connections  = new ArrayList<>();
     private ChatServer(){
     System.out.println("Server Running...");
         try (ServerSocket serverSocket = new ServerSocket(8000)) {
@@ -32,22 +34,36 @@ public class ChatServer implements TCPConnectionListener {
     }
 
     @Override
-    public void onConnectionReady(TCPConnection tcpConnection) {
+    public synchronized void onConnectionReady(TCPConnection tcpConnection) {
+        connections.add(tcpConnection);
+        sendToAllClients("Client Connected: " + tcpConnection);
 
     }
 
     @Override
-    public void onReceiveString(TCPConnection tcpConnection, String value) {
+    public synchronized void onReceiveString(TCPConnection tcpConnection, String value) {
+        sendToAllClients(value);
 
     }
 
     @Override
-    public void onDisconnect(TCPConnection tcpConnection) {
+    public synchronized void onDisconnect(TCPConnection tcpConnection) {
+        connections.remove(tcpConnection);
+        sendToAllClients("Client Disconnected " + tcpConnection);
 
     }
 
     @Override
-    public void onException(TCPConnection tcpConnection, Exception e) {
+    public synchronized void onException(TCPConnection tcpConnection, Exception e) {
+        System.out.println("TCPConnection Exception " + e);
 
+    }
+
+    private void sendToAllClients(String msg){
+        System.out.println("Msg: " + msg);
+        final int cnt = connections.size();
+        for (int i = 0; i < cnt; i++) {
+            connections.get(i).sendMsg(msg);
+        }
     }
 }
