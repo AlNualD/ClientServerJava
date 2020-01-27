@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bd823455-46a5-4e14-9f9a-f8032d677865" name="Default Changelist" comment="" />
+    <list default="true" id="bd823455-46a5-4e14-9f9a-f8032d677865" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/chat/client/primaryStage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/client/client.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/chat/client/ClientWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/chat/client/ClientWin.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,6 +22,7 @@
       <list>
         <option value="Class" />
         <option value="Interface" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -33,12 +41,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/javaFX/javafx-sdk-11.0.2/lib" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
-  <component name="RunManager" selected="Application.ChatServer">
+  <component name="RunManager" selected="Application.ClientWin">
     <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="chat.server.ChatServer" />
       <module name="server" />
@@ -54,7 +64,20 @@
     </configuration>
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Client" />
-      <module name="ClientServerJava" />
+      <option name="VM_PARAMETERS" value="--module-path ${C:\Users\nuald\javaFX\javafx-sdk-11.0.2\lib} --add-modules=javafx.controls,javafx.fxml,javafx.base" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ClientWin" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="chat.client.ClientWin" />
+      <module name="client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="chat.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -72,8 +95,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ChatServer" />
+      <item itemvalue="Application.Client" />
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Application.ClientWin" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ClientWin" />
         <item itemvalue="Application.ChatServer" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
@@ -110,46 +140,58 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="72" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1579521957343" />
-    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1579196646112">
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580113236990">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1579196646112" />
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1580113236990" />
     <state x="501" y="216" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579502258792">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="501" y="216" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1579502258792" />
-    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1579522104902">
+    <state x="548" y="118" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1580113159845">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1579522104902" />
+    <state x="548" y="118" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.824@0.0.1536.824" timestamp="1580113159845" />
+    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1580113401431">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1580113401431" />
     <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1579196625863">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1579196625863" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1579524873961">
+    <state x="501" y="155" key="FileChooserDialogImpl" timestamp="1580113051628">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579524873961" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1579524873961">
+    <state x="501" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1580113051628" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1580124427494">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579524873961" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1579524873961">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580124427494" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1580124427494">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579524873961" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1579524873961">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1580124427494" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1580124427494">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579524873961" />
-    <state x="277" y="0" key="SettingsEditor" timestamp="1579428837943">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1580124427494" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1580124427494">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1579428837943" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1580124427494" />
+    <state x="277" y="0" key="SettingsEditor" timestamp="1580113074528">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1580113074528" />
     <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1579425617560">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579425617560" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1580107067889">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1580107067889" />
     <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1579196561159">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
