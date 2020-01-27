@@ -1,7 +1,10 @@
 package chat.client;
 
 import javafx.application.Application;
-import javafx.stage.Stage;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.*;
 
 import java.net.*;
 import java.io.*;
@@ -13,9 +16,12 @@ import network.pckg.*;
  * Основной класс для клиентского окна
  */
 public class ClientWin extends Application {
+
+
+
     public static void main(String[] args) {
-        new ClientWin();
-        Application.launch();
+        //new ClientWin();
+        Application.launch(args);
 
     }
     public ClientWin(){
@@ -25,11 +31,8 @@ public class ClientWin extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        URL xmlUrl = getClass().getResource("/primaryStage.fxml");
-        loader.setLocation(xmlUrl);
-        Parent root = loader.load();
-
+        Parent root = FXMLLoader.load(getClass().getResource("primaryStage.fxml"));
+        primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 
