@@ -5,7 +5,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chat.client.controller">
    <children>
-      <TextArea fx:id="messageArea" layoutX="18.0" layoutY="272.0" prefHeight="100.0" prefWidth="415.0" wrapText="true" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="100" />
+      <TextArea fx:id="messageArea" editable="true" layoutX="18.0" layoutY="272.0" prefHeight="100.0" prefWidth="415.0" wrapText="true" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="100" />
       <TextArea fx:id="chatArea" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="248.0" prefWidth="574.0" wrapText="true" AnchorPane.bottomAnchor="130" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="40" />
       <Button fx:id="sendButton" layoutX="521.0" layoutY="349.0" mnemonicParsing="false" onAction="#sendButtonClicked" text="Send" AnchorPane.bottomAnchor="30" AnchorPane.rightAnchor="30" />
       <Button fx:id="connectionButton" onAction="#connectionButtonClicked" AnchorPane.topAnchor="8" AnchorPane.rightAnchor="10" layoutX="410.0" layoutY="4.0" mnemonicParsing="false" text="Connection" />

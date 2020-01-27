@@ -5,7 +5,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/chat/client/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/chat/client/controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/chat/client/primaryStage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/chat/client/primaryStage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/client/chat/client/ClientWin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/client/chat/client/ClientWin.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/client/chat/client/controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/client/chat/client/controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/client/chat/client/primaryStage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/client/chat/client/primaryStage.fxml" afterDir="false" />
     </list>
@@ -49,7 +48,7 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
-  <component name="RunManager" selected="Application.ChatServer">
+  <component name="RunManager" selected="Application.ClientWin">
     <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="chat.server.ChatServer" />
       <module name="server" />
@@ -105,8 +104,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ChatServer" />
         <item itemvalue="Application.ClientWin" />
+        <item itemvalue="Application.ChatServer" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
       </list>
@@ -170,22 +169,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="501" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1580132869977" />
-    <state width="1493" height="196" key="GridCell.Tab.0.bottom" timestamp="1580142907205">
+    <state width="1493" height="196" key="GridCell.Tab.0.bottom" timestamp="1580143553191">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="196" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580142907205" />
-    <state width="1493" height="196" key="GridCell.Tab.0.center" timestamp="1580142907204">
+    <state width="1493" height="196" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580143553191" />
+    <state width="1493" height="196" key="GridCell.Tab.0.center" timestamp="1580143553191">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="196" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1580142907204" />
-    <state width="1493" height="196" key="GridCell.Tab.0.left" timestamp="1580142907204">
+    <state width="1493" height="196" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1580143553191" />
+    <state width="1493" height="196" key="GridCell.Tab.0.left" timestamp="1580143553191">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="196" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1580142907204" />
-    <state width="1493" height="196" key="GridCell.Tab.0.right" timestamp="1580142907205">
+    <state width="1493" height="196" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1580143553191" />
+    <state width="1493" height="196" key="GridCell.Tab.0.right" timestamp="1580143553191">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="196" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1580142907205" />
+    <state width="1493" height="196" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1580143553191" />
     <state x="467" y="112" key="NewModule_or_Project.wizard" timestamp="1580128896348">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -34,8 +34,14 @@ public class controller implements TCPConnectionListener {
         messageArea.setText("");
     }
     public void connectionButtonClicked(){
-        if (connectionButton.getText().equals("connection")){
-            nickname = nicknameTF.getText();
+        //if (connectionButton.getText().equals("connection")){
+        if(connectionButton.getText().equals("disconnection")){
+            connection.disconnect();
+            connectionButton.setText("connection");
+            messageArea.setEditable(false);
+            return;
+        }
+        nickname = nicknameTF.getText();
             if (checkNickname(nickname)) {
                 try {
                     connection = new TCPConnection(this, "127.0.0.1",8000);
@@ -47,11 +53,12 @@ public class controller implements TCPConnectionListener {
                     printInChatArea("Connection failed");
                 }
             }
-        }
-        else {
-            connection.disconnect();
-            messageArea.setEditable(false);
-        }
+
+        //}
+        //else {
+        //    connection.disconnect();
+           // messageArea.setEditable(false);
+        //}
     }
 
     private boolean checkNickname(String nickname){
