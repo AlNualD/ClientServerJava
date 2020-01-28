@@ -1,5 +1,6 @@
 package chat.client;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -78,7 +79,10 @@ public class controller implements TCPConnectionListener {
     @Override
     public void onConnectionReady(TCPConnection tcpConnection) {
         printInChatArea("connection is successful");
-        connectionButton.setText("disconnection");
+        Platform.runLater(() -> {
+            connectionButton.setText("disconnection");
+        });
+
     }
 
     @Override
