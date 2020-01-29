@@ -40,11 +40,14 @@ public class controller implements TCPConnectionListener {
             connection.disconnect();
             connectionButton.setText("connection");
             messageArea.setEditable(false);
+            nicknameTF.setEditable(true);
             return;
         }
         nickname = nicknameTF.getText();
             if (checkNickname(nickname)) {
                 try {
+
+                    nicknameTF.setEditable(false);
                     connection = new TCPConnection(this, "127.0.0.1",8000);
                     messageArea.setEditable(true);
 

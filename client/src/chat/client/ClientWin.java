@@ -32,7 +32,7 @@ public class ClientWin extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("primaryStage.fxml"));
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Client for Chat");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 
