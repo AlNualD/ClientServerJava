@@ -1,5 +1,7 @@
 package network.pckg;
 
+import user.pckg.UserInf;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -27,6 +29,8 @@ public class TCPConnection {
      */
     private BufferedReader in;
 
+    private UserInf user;
+
     public TCPConnection(TCPConnectionListener eventListener, String ipAdr, int port) throws  IOException{
         this(eventListener,new Socket(ipAdr,port));
     }
@@ -46,7 +50,7 @@ public class TCPConnection {
                try { //отлавливаем исключение
                    //если все хорошо, то происходит событие
                    eventListener.onConnectionReady(TCPConnection.this);
-                   while (!rxThread.isInterrupted()) //пока поток не прерван
+                   while (!rxThread.isInterrupted() && !rxThread.isAlive()) //пока поток не прерван
                    {
                        String msg = in.readLine();
                        eventListener.onReceiveString(TCPConnection.this, msg);
@@ -97,5 +101,11 @@ public class TCPConnection {
     }
 
 
+    public UserInf getUser() {
+        return user;
+    }
 
+    public void setUser(UserInf user) {
+        this.user = user;
+    }
 }
