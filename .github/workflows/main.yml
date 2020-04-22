@@ -27,6 +27,18 @@ jobs:
         echo Starting testing,
         docker build -f DockerfileForTests -t server-junit . 
         docker run server-junit  
+  checkstyle_job:
+        runs-on: ubuntu-latest
+        needs: [build_and_test]
+        name: Checkstyle job
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: Run check style
+          uses: nikitasavinov/checkstyle-action@master
+          with:
+            repo-token: ${{ secrets.GITHUB_TOKEN }}
+            reporter: 'github-pr-check'
   dockerhub:
         runs-on: ubuntu-latest
         needs: [build_and_test]
@@ -40,5 +52,4 @@ jobs:
           - name: login and push
             run: |
               docker login --username=$LOGIN --password=$PASSWORD
-              docker push $LOGIN/servdocker:ver$GITHUB_RUN_NUMBER
-     
+              docker push $LOGIN/servdocker:ver_$GITHUB_RUN_NUMBER 
