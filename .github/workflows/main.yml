@@ -36,9 +36,9 @@ jobs:
               LOGIN: ${{ secrets.DOCKER_HUB_USERNAME }}
               PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
           - name: build  
-            run: docker build -t serverdocker-ver$GITHUB_RUN_NUMBER .
+            run: docker build -t $LOGIN/servdocker:ver$GITHUB_RUN_NUMBER .
           - name: login and push
             run: |
               docker login --username=$LOGIN --password=$PASSWORD
-              docker push serverdocker-ver$GITHUB_RUN_NUMBER
+              docker push $LOGIN/servdocker:ver$GITHUB_RUN_NUMBER
      
