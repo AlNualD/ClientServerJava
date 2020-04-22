@@ -32,7 +32,7 @@ jobs:
         needs: [build_and_test]
         steps:
           - uses: actions/checkout@v2
-          - env: 
+            env: 
               LOGIN: ${{ secrets.DOCKER_HUB_USERNAME }}
               PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
           - name: build  
