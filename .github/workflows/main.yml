@@ -43,13 +43,10 @@ jobs:
         runs-on: ubuntu-latest
         needs: [build_and_test, checkstyle_job]
         steps:
-          - uses: actions/checkout@v2
-            env: 
-              LOGIN: ${{ secrets.DOCKER_HUB_USERNAME }}
-              PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          - uses: actions/checkout@v2}
           - name: login
             run: docker login --username=${{ secrets.DOCKER_HUB_USERNAME }} --password=${{ secrets.DOCKER_HUB_PASSWORD }}
           - name: build  
-            run: docker build -t $LOGIN/servdocker:ver_$GITHUB_RUN_NUMBER .
+            run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/servdocker:ver_$GITHUB_RUN_NUMBER .
           - name: push
-            run: docker push $LOGIN/servdocker:ver_$GITHUB_RUN_NUMBER 
+            run: docker push ${{ secrets.DOCKER_HUB_USERNAME }}/servdocker:ver_$GITHUB_RUN_NUMBER 
