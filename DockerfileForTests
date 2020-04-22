@@ -1,0 +1,6 @@
+FROM openjdk:8-jdk-alpine
+ADD ./network/src/ ./src/
+ADD ./server/src/ ./src/
+ADD ./lib/junit-3.8.2.jar ./bin/
+RUN javac -d ./bin/ -cp ./bin/junit-3.8.2.jar -sourcepath ./src/ src/server/tests/serverCommandsTests.java
+CMD ["java","-cp","./bin/junit-3.8.2.jar:/bin/","junit.textui.TestRunner","server.tests.serverCommandsTests"]
