@@ -47,9 +47,9 @@ jobs:
             env: 
               LOGIN: ${{ secrets.DOCKER_HUB_USERNAME }}
               PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}
+          - name: login
+            run: docker login --username=$LOGIN --password=$PASSWORD
           - name: build  
-            run: docker build -t $LOGIN/servdocker:ver$GITHUB_RUN_NUMBER .
-          - name: login and push
-            run: |
-              docker login --username=$LOGIN --password=$PASSWORD
-              docker push $LOGIN/servdocker:ver_$GITHUB_RUN_NUMBER 
+            run: docker build -t $LOGIN/servdocker:ver_$GITHUB_RUN_NUMBER .
+          - name: push
+            run: docker push $LOGIN/servdocker:ver_$GITHUB_RUN_NUMBER 
