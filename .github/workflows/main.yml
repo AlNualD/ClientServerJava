@@ -27,22 +27,29 @@ jobs:
         echo Starting testing,
         docker build -f DockerfileForTests -t server-junit . 
         docker run server-junit  
-  checkstyle_job:
-        runs-on: ubuntu-latest
-        needs: [build_and_test]
-        name: Checkstyle job
-        steps:
-        - name: Checkout
-          uses: actions/checkout@v2
-        - name: Run check style
-          uses: nikitasavinov/checkstyle-action@master
-          with:
-            repo-token: ${{ secrets.GITHUB_TOKEN }}
-            level: error
-            reporter: 'github-pr-check'
+  formatting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 # v2 minimum required
+      - uses: axel-op/googlejavaformat-action@v2.0.0
+        with:
+          args: "--set-exit-if-changed"
+#   checkstyle_job:
+#         runs-on: ubuntu-latest
+#         needs: [build_and_test]
+#         name: Checkstyle job
+#         steps:
+#         - name: Checkout
+#           uses: actions/checkout@v2
+#         - name: Run check style
+#           uses: nikitasavinov/checkstyle-action@master
+#           with:
+#             repo-token: ${{ secrets.GITHUB_TOKEN }}
+#             level: error
+#             reporter: 'github-pr-check'
   dockerhub:
         runs-on: ubuntu-latest
-        needs: [build_and_test, checkstyle_job]
+        needs: [build_and_test, formatting]
         steps:
           - uses: actions/checkout@v2
           - name: login
