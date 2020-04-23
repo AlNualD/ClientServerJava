@@ -4,8 +4,8 @@ import java.util.regex.Pattern;
 
 public class CommandsController implements CommandsControllerInterface {
 
-    String SEND_ALL = "^##SEND_ALL##.*";
-    String LOGIN = "^##LOGIN##.*";
+  String SEND_ALL = "^##SEND_ALL##.*";
+  String LOGIN = "^##LOGIN##.*";
 
     @Override
     public commands parseMSG(String msg) {
@@ -21,15 +21,14 @@ public class CommandsController implements CommandsControllerInterface {
         return commands.ERROR;
     }
 
-
-    @Override
-    public String cutCommand(String msg, commands command) {
-        return msg.substring(commands.returnRegex(command).length() - 3);
-    }
-
+  @Override
+  public String cutCommand(String msg, commands command) {
+    return msg.substring(commands.returnRegex(command).length() - 3);
+  }
 
 //    @Override
 //    public void control(commands command) {
 //
 //    }
+
 }
