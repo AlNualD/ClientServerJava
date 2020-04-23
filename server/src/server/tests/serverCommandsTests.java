@@ -27,8 +27,12 @@ public class serverCommandsTests extends TestCase {
 
   public void testCutCommand() {
     CommandsController commandsController = new CommandsController();
-    assertEquals("messageTEXT", commandsController.cutCommand("##LOGIN##messageTEXT", commands.LOGIN));
-    assertEquals("messageTEXT", commandsController.cutCommand("##SEND_ALL##messageTEXT", commands.SEND_ALL));
-    assertEquals("messageTEXT", commandsController.cutCommand("##SEND_SINGLE##messageTEXT", commands.SEND_SINGLE));
+    assertEquals(
+        "messageTEXT", commandsController.cutCommand("##LOGIN##messageTEXT", commands.LOGIN));
+    assertEquals(
+        "messageTEXT", commandsController.cutCommand("##SEND_ALL##messageTEXT", commands.SEND_ALL));
+    assertEquals(
+        "messageTEXT",
+        commandsController.cutCommand("##SEND_SINGLE##messageTEXT", commands.SEND_SINGLE));
   }
 }
