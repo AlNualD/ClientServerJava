@@ -44,9 +44,7 @@ public class controller implements TCPConnectionListener {
       try {
 
         nicknameTF.setEditable(false);
-        connection =
-            new TCPConnection(
-                this, "127.0.0.1", 8000); // "192.168.99.101", 8080);
+        connection = new TCPConnection(this, "127.0.0.1", 8000); // "192.168.99.101", 8080);
         messageArea.setEditable(true);
 
       } catch (IOException e) {

@@ -1,6 +1,5 @@
 package chat.server;
 
-
 public class CommandsController implements CommandsControllerInterface {
 
   String SEND_ALL = "^##SEND_ALL##.*";
