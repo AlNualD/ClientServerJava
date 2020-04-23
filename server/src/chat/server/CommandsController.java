@@ -1,6 +1,5 @@
 package chat.server;
 
-import java.util.regex.Pattern;
 
 public class CommandsController implements CommandsControllerInterface {
 
