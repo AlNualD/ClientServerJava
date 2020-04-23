@@ -20,7 +20,7 @@ public class CommandsController implements CommandsControllerInterface {
 
   @Override
   public String cutCommand(String msg, commands command) {
-    return msg.substring(commands.returnRegex(command).length() - 2);
+    return msg.substring(commands.returnRegex(command).length() - 3);
   }
 
   //    @Override
