@@ -1,14 +1,11 @@
 package chat.client;
 
+import java.io.*;
+import java.net.*;
 import javafx.application.Application;
 import javafx.fxml.*;
 import javafx.scene.*;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.*;
-
-import java.net.*;
-import java.io.*;
-
 import network.pckg.*;
 
 /** @author nuald Основной класс для клиентского окна */

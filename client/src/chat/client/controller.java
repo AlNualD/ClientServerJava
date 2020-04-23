@@ -1,5 +1,6 @@
 package chat.client;
 
+import java.io.IOException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -7,8 +8,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import network.pckg.TCPConnection;
 import network.pckg.TCPConnectionListener;
-
-import java.io.IOException;
 
 public class controller implements TCPConnectionListener {
 
