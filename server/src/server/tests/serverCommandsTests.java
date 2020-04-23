@@ -5,13 +5,6 @@ import chat.server.commands;
 import junit.framework.TestCase;
 
 public class serverCommandsTests extends TestCase {
-<<<<<<< Updated upstream
-    public void testCommandController() {
-        CommandsController commandsController = new CommandsController();
-        assertEquals(commandsController.parseMSG("##LOGIN##sahdfsjkdfh"), commands.LOGIN);
-        assertEquals(commandsController.parseMSG("##SEND_ALL##asdfdf"),commands.SEND_ALL);
-    }
-=======
   public void testLoginCommand() {
     CommandsController commandsController = new CommandsController();
     assertEquals(commands.LOGIN, commandsController.parseMSG("##LOGIN##messageTEXT"));
@@ -38,5 +31,4 @@ public class serverCommandsTests extends TestCase {
     assertEquals("messageTEXT", commandsController.cutCommand("##SEND_ALL##messageTEXT", commands.SEND_ALL));
     assertEquals("messageTEXT", commandsController.cutCommand("##SEND_SINGLE##messageTEXT", commands.SEND_SINGLE));
   }
->>>>>>> Stashed changes
 }
