@@ -1,9 +1,8 @@
 package network.pckg;
 
-import user.pckg.UserInf;
-
 import java.io.*;
 import java.net.Socket;
+import user.pckg.UserInf;
 
 /** Класс для универсального взаимодействия с сетью */
 public class TCPConnection {

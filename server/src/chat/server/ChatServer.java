@@ -1,12 +1,11 @@
 package chat.server;
 
-import network.pckg.TCPConnection;
-import network.pckg.TCPConnectionListener;
-import user.pckg.UserInf;
-
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
+import network.pckg.TCPConnection;
+import network.pckg.TCPConnectionListener;
+import user.pckg.UserInf;
 
 /** основной класс сервера для чата */
 public class ChatServer implements TCPConnectionListener {
