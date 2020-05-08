@@ -2,9 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd823455-46a5-4e14-9f9a-f8032d677865" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/google-checks.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/junit_3_8_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/chat/client/ClientWin.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/chat/client/ClientWin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/chat/client/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/chat/client/controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/chat/client/primaryStage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/chat/client/primaryStage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/network/src/network/pckg/TCPConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/network/pckg/TCPConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/client/chat/client/ClientWin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/client/chat/client/ClientWin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/client/chat/client/controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/client/chat/client/controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/client/chat/client/primaryStage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/client/chat/client/primaryStage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/network/network/pckg/TCPConnection$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/network/network/pckg/TCPConnection$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/network/network/pckg/TCPConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/network/network/pckg/TCPConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/network/network/pckg/TCPConnectionListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/network/network/pckg/TCPConnectionListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/server/chat/server/ChatServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/chat/server/ChatServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/chat/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/chat/server/ChatServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/chat/server/CommandsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/chat/server/CommandsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/chat/server/CommandsControllerInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/chat/server/CommandsControllerInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/chat/server/commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/common/commands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/server/tests/serverCommandsTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/server/tests/serverCommandsTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +34,9 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="ClientServerJava" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -40,19 +64,24 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/javaFX/javafx-sdk-11.0.2/lib" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/junit-3.8.2.jar!/" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
+    <property name="settings.editor.selected.configurable" value="google-java-format.settings" />
   </component>
-  <component name="RunManager" selected="Application.ChatServer">
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="commands" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ClientWin">
     <configuration name="ChatServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="chat.server.ChatServer" />
       <module name="server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="chat.server.*" />
+          <option name="PATTERN" value="common.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,16 +123,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="serverCommandsTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="server.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="server.tests" />
+      <option name="MAIN_CLASS_NAME" value="server.tests.serverCommandsTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.ChatServer" />
       <item itemvalue="Application.Client" />
       <item itemvalue="Application.Server" />
       <item itemvalue="Application.ClientWin" />
+      <item itemvalue="JUnit.serverCommandsTests" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.ClientWin" />
         <item itemvalue="Application.ChatServer" />
+        <item itemvalue="JUnit.serverCommandsTests" />
         <item itemvalue="Application.Client" />
         <item itemvalue="Application.Server" />
       </list>
@@ -135,81 +181,77 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="72" key="#Project_Structure" timestamp="1579521957343">
+    <state x="361" y="72" key="#Custom_Plugin_Repositories" timestamp="1587618647277">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="72" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1579521957343" />
-    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580224100631">
+    <state x="361" y="72" key="#Custom_Plugin_Repositories/0.0.1536.824@0.0.1536.824" timestamp="1587618647277" />
+    <state x="361" y="72" key="#Plugins" timestamp="1587618750026">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1580224100631" />
-    <state x="501" y="216" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1579502258792">
+    <state x="361" y="72" key="#Plugins/0.0.1536.824@0.0.1536.824" timestamp="1587618750026" />
+    <state x="499" y="194" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1588931041657">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="501" y="216" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1579502258792" />
-    <state x="548" y="118" key="#com.intellij.ide.macro.MacrosDialog" timestamp="1580132650749">
+    <state x="499" y="194" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1588931041657" />
+    <state x="566" y="273" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1588931047594">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="548" y="118" key="#com.intellij.ide.macro.MacrosDialog/0.0.1536.824@0.0.1536.824" timestamp="1580132650749" />
-    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1580141128803">
+    <state x="566" y="273" width="403" height="287" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1588931047594" />
+    <state x="501" y="155" key="FileChooserDialogImpl" timestamp="1587627593570">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1580141128803" />
-    <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1579196625863">
+    <state x="501" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1587627593570" />
+    <state width="1493" height="272" key="GridCell.Tab.0.bottom" timestamp="1588964938844">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="498" y="197" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1579196625863" />
-    <state x="424" y="8" key="CommitChangelistDialog2" timestamp="1580139692814">
+    <state width="1493" height="272" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588964938844" />
+    <state width="1493" height="272" key="GridCell.Tab.0.center" timestamp="1588964938844">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="424" y="8" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1580139692814" />
-    <state x="501" y="155" key="FileChooserDialogImpl" timestamp="1580132869977">
+    <state width="1493" height="272" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1588964938844" />
+    <state width="1493" height="272" key="GridCell.Tab.0.left" timestamp="1588964938844">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="501" y="155" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1580132869977" />
-    <state width="1493" height="196" key="GridCell.Tab.0.bottom" timestamp="1580279598644">
+    <state width="1493" height="272" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1588964938844" />
+    <state width="1493" height="272" key="GridCell.Tab.0.right" timestamp="1588964938844">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="196" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1580279598644" />
-    <state width="1493" height="196" key="GridCell.Tab.0.center" timestamp="1580279598644">
+    <state width="1493" height="272" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1588964938844" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1588933433935">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="196" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1580279598644" />
-    <state width="1493" height="196" key="GridCell.Tab.0.left" timestamp="1580279598644">
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1588933433935" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1588933433934">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="196" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1580279598644" />
-    <state width="1493" height="196" key="GridCell.Tab.0.right" timestamp="1580279598644">
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1588933433934" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1588933433934">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="196" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1580279598644" />
-    <state x="467" y="112" key="NewModule_or_Project.wizard" timestamp="1580128896348">
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1588933433934" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1588933433934">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="467" y="112" key="NewModule_or_Project.wizard/0.0.1536.824@0.0.1536.824" timestamp="1580128896348" />
-    <state x="277" y="0" key="SettingsEditor" timestamp="1580132879667">
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1588933433934" />
+    <state x="277" y="0" key="SettingsEditor" timestamp="1588963472696">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1580132879667" />
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2" timestamp="1579425617560">
+    <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1588963472696" />
+    <state width="254" height="198" key="ShowFilterAction_Filter_Popup" timestamp="1587618545243">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1579425617560" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1580222091789">
+    <state width="254" height="198" key="ShowFilterAction_Filter_Popup/0.0.1536.824@0.0.1536.824" timestamp="1587618545243" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1587618938801">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1580222091789" />
-    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1580139803038">
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587618938801" />
+    <state x="237" y="34" key="new project wizard" timestamp="1587723128178">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="578" y="330" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1580139803038" />
-    <state x="237" y="34" key="new project wizard" timestamp="1580131906954">
+    <state x="237" y="34" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1587723128178" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1587620104284">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="237" y="34" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1580131906954" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1579501629954">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1579501629954" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1587620104284" />
   </component>
 </project>
