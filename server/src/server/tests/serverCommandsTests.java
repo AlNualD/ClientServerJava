@@ -1,7 +1,7 @@
 package server.tests;
 
 import chat.server.CommandsController;
-import chat.server.commands;
+import common.commands;
 import junit.framework.TestCase;
 
 public class serverCommandsTests extends TestCase {

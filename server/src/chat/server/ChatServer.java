@@ -3,6 +3,9 @@ package chat.server;
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
+import java.util.Random;
+
+import common.commands;
 import network.pckg.TCPConnection;
 import network.pckg.TCPConnectionListener;
 import user.pckg.UserInf;
@@ -39,27 +42,59 @@ public class ChatServer implements TCPConnectionListener {
   public synchronized void onConnectionReady(TCPConnection tcpConnection) {
     UserInf newUser = new UserInf(tcpConnection);
     connections.add(tcpConnection);
-    users.add(newUser);
-    tcpConnection.setUser(newUser);
+   users.add(newUser);
+   tcpConnection.setUser(newUser);
     sendToAllClients("Client Connected: " + tcpConnection);
   }
 
   @Override
   public synchronized void onReceiveString(TCPConnection tcpConnection, String value) {
-    // sendToAllClients(value)
+     //sendToAllClients(value);
     commands command = commandsController.parseMSG(value);
-    actions(command, tcpConnection, commandsController.cutCommand(value, command));
+    if (command == commands.EXIT) {
+      tcpConnection.disconnect();
+    }
+    else   actions(command, tcpConnection, commandsController.cutCommand(value, command));
   }
 
   private void actions(commands command, TCPConnection tcpConnection, String msg) {
     switch (command) {
       case SEND_ALL:
         sendToAllClients(tcpConnection.getUser().getNickname() + ": " + msg);
+        break;
       case LOGIN:
         userLogin(tcpConnection, msg);
+        break;
+      case ROLL_ME: rollME(tcpConnection,msg);
+        break;
+      case EXIT:
+        tcpConnection.disconnect();
+      default: System.out.println("UNKNOWN COMMAND");
+      break;
     }
   }
 
+  private void rollME(TCPConnection tcpConnection, String formula){
+    String[] parts = formula.split("@");
+    System.out.println(parts[0]);
+    System.out.println(parts[1]);
+    System.out.println(parts[2]);
+    int n = Integer.parseInt(parts[0]); //parts[0];
+    int d = Integer.parseInt(parts[1]);
+    int modif = Integer.parseInt(parts[2]);
+    int total = 0;
+    String msg = tcpConnection.getUser().getNickname() + " roll " + n +"d" + d + " ";
+    Random randomizer = new Random();
+    for (int i = 0; i < n; i++) {
+      int rvalue = randomizer.nextInt(d) + 1;
+      total+= rvalue;
+      msg += rvalue + " and ";
+    }
+    total += modif;
+    msg += "(mod)" + parts[2];
+    msg += " = " + total;
+    sendToAllClients(msg);
+  }
   private void userLogin(TCPConnection tcpConnection, String msg) {
     UserInf curUser = tcpConnection.getUser();
     curUser.setNickname(msg);
@@ -67,6 +102,7 @@ public class ChatServer implements TCPConnectionListener {
 
   @Override
   public synchronized void onDisconnect(TCPConnection tcpConnection) {
+    users.remove(tcpConnection.getUser());
     connections.remove(tcpConnection);
     sendToAllClients("Client Disconnected " + tcpConnection);
   }
@@ -76,7 +112,6 @@ public class ChatServer implements TCPConnectionListener {
     System.out.println("TCPConnection Exception " + e);
   }
 
-  private void parsingStr(TCPConnection tcpConnection, String msg) {}
 
   private void sendToAllClients(String msg) {
     System.out.println("Msg: " + msg);

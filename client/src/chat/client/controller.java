@@ -1,30 +1,58 @@
 package chat.client;
 
 import java.io.IOException;
+import java.util.regex.Pattern;
+
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.WindowEvent;
 import network.pckg.TCPConnection;
 import network.pckg.TCPConnectionListener;
+import common.commands;
 
 public class controller implements TCPConnectionListener {
 
   private TCPConnection connection;
-
+    //private ObservableList<String> dices  = FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d12", "20");
+    private ObservableList<String> dices = FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d12", "d20");
+  Pattern numberPattern = Pattern.compile("((\\+|-)?\\d*)");
+  Pattern numberABSPattern = Pattern.compile("(\\d*)");
   private String nickname;
   @FXML private Button connectionButton;
   @FXML private TextArea chatArea;
   @FXML private TextArea messageArea;
   @FXML private TextField nicknameTF;
+  @FXML private  TextField modifTF;
+  @FXML private TextField diceAmountTF;
+  @FXML private ComboBox<String> rollMenu;// = new ComboBox<>(dices);
+
+  public void rollButtonClicked() {
+    String msg = commands.returnCommand(commands.ROLL_ME);
+    String buf = diceAmountTF.getText();
+    if(buf.equals("")) buf = "1";
+    msg = msg + buf + "@";
+    buf = rollMenu.getValue();
+    msg += buf.substring(1) + "@";
+    buf = modifTF.getText();
+    if(buf.equals("")) buf = "0";
+    msg += buf;
+    connection.sendMsg(msg);
+  }
 
   public void sendButtonClicked() {
 
     System.out.println("Its work!");
     String msg = messageArea.getText();
     if (msg.equals("")) return;
-    msg = nickname + ": " + msg;
+    //msg = nickname + ": " + msg;
+    msg = commands.returnCommand(commands.SEND_ALL) + msg;
     connection.sendMsg(msg);
     // chatArea.appendText(messageArea.getText() + "\n");
     messageArea.setText("");
@@ -33,10 +61,14 @@ public class controller implements TCPConnectionListener {
   public void connectionButtonClicked() {
     // if (connectionButton.getText().equals("connection")){
     if (connectionButton.getText().equals("disconnection")) {
+      connection.sendMsg(commands.returnCommand(commands.EXIT));
       connection.disconnect();
       connectionButton.setText("connection");
       messageArea.setEditable(false);
+      modifTF.setEditable(false);
+      diceAmountTF.setEditable(false);
       nicknameTF.setEditable(true);
+
       return;
     }
     nickname = nicknameTF.getText();
@@ -53,7 +85,7 @@ public class controller implements TCPConnectionListener {
         printInChatArea("Connection failed");
       }
     }
-
+   //
     // }
     // else {
     //    connection.disconnect();
@@ -80,6 +112,33 @@ public class controller implements TCPConnectionListener {
         () -> {
           connectionButton.setText("disconnection");
         });
+    connection.sendMsg(commands.returnCommand(commands.LOGIN) + nickname);
+    rollMenu.setItems(dices);
+    //rollMenu.
+    modifTF.setEditable(true);
+    diceAmountTF.setEditable(true);
+
+    //rollMenu.setValue("d20");
+    //TODO: убрать наложение листнеров. Сделать однократное
+    modifTF.textProperty().addListener((observable, oldValue, newValue) -> {
+      if (!numberPattern.matcher(newValue).matches()) modifTF.setText(oldValue);
+    });
+    diceAmountTF.textProperty().addListener((observable, oldValue, newValue) -> {
+      if (!numberABSPattern.matcher(newValue).matches()) diceAmountTF.setText(oldValue);
+    });
+  }
+
+  private javafx.event.EventHandler<WindowEvent> openEventHandler = new javafx.event.EventHandler<WindowEvent>() {
+    @Override
+    public void handle(WindowEvent event) {
+      //ТУТ НЕОБХОДИМАЯ ЛОГИКА
+      System.out.println("Stage is openningfdsdf");
+
+      }
+  };
+
+  public javafx.event.EventHandler<WindowEvent> getOpenEventHandler(){
+    return openEventHandler;
   }
 
   @Override

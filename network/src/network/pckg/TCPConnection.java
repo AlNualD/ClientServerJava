@@ -37,7 +37,7 @@ public class TCPConnection {
                 try { // отлавливаем исключение
                   // если все хорошо, то происходит событие
                   eventListener.onConnectionReady(TCPConnection.this);
-                  while (!rxThread.isInterrupted() && !rxThread.isAlive()) // пока поток не прерван
+                  while (!rxThread.isInterrupted() )//&& !rxThread.isAlive()) // пока поток не прерван
                   {
                     String msg = in.readLine();
                     eventListener.onReceiveString(TCPConnection.this, msg);
@@ -84,11 +84,11 @@ public class TCPConnection {
     return "TCPConnection: " + socket.getInetAddress() + ": " + socket.getPort();
   }
 
-  public UserInf getUser() {
+  public synchronized UserInf getUser() {
     return user;
   }
 
-  public void setUser(UserInf user) {
+  public synchronized void setUser(UserInf user) {
     this.user = user;
   }
 }
