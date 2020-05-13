@@ -3,15 +3,19 @@ package user.pckg;
 import network.pckg.TCPConnection;
 
 public class UserInf {
-  private int id;
-  private String nickname;
+  private int id = "name".hashCode()%10000;
+  private String nickname = "name";
+  private  String passwd = "passwd";
   private TCPConnection tcpConnection;
 
-  public UserInf(int id, String nickname, TCPConnection tcpConnection) {
+  public UserInf(int id, String nickname, String passwd) {
     this.id = id;
     this.nickname = nickname;
-    this.tcpConnection = tcpConnection;
+    this.passwd = "passwd";
+    //this.tcpConnection = tcpConnection;
   }
+
+ // public  UserInf
 
   public UserInf(TCPConnection tcpConnection) {
     this.tcpConnection = tcpConnection;
@@ -35,5 +39,14 @@ public class UserInf {
 
   public void setTcpConnection(TCPConnection tcpConnection) {
     this.tcpConnection = tcpConnection;
+  }
+
+  public String getPasswd() {
+    return passwd;
+  }
+
+  public void setPasswd(String passwd) {
+    if (passwd.length() > 0 && passwd.length() < 30)
+    this.passwd = passwd;
   }
 }

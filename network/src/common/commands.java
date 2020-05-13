@@ -6,6 +6,7 @@ public enum commands {
   LOGIN,
   EXIT,
   ROLL_ME,
+  NEW_USER,
   ERROR;
 
   public static String returnRegex(commands command) {
@@ -18,6 +19,7 @@ public enum commands {
         return "^##SEND_SINGLE##.*";
       case EXIT: return "^##DISCONNECT##";
       case ROLL_ME: return  "^##ROLL_DICE##.*";
+      case NEW_USER: return "^##NEW_USER##.*";
       case ERROR:
         return "ERR";
     }
@@ -35,6 +37,7 @@ public enum commands {
       case EXIT:
         return "##DISCONNECT##";
       case ROLL_ME: return "##ROLL_DICE##";
+      case NEW_USER: return "##NEW_USER##";
     }
     return  "ERR";
   }

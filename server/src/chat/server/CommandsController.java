@@ -25,6 +25,9 @@ public class CommandsController implements CommandsControllerInterface {
     if (msg.matches(commands.returnRegex(commands.EXIT))) {
       return commands.EXIT;
     }
+    if(msg.matches(commands.returnRegex(commands.NEW_USER))){
+      return  commands.NEW_USER;
+    }
     return commands.ERROR;
   }
 

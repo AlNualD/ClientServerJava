@@ -8,10 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.WindowEvent;
 import network.pckg.TCPConnection;
 import network.pckg.TCPConnectionListener;
@@ -24,16 +21,20 @@ public class controller implements TCPConnectionListener {
     private ObservableList<String> dices = FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d12", "d20");
   Pattern numberPattern = Pattern.compile("((\\+|-)?\\d*)");
   Pattern numberABSPattern = Pattern.compile("(\\d*)");
+  commands command = commands.LOGIN;
   private String nickname;
   @FXML private Button connectionButton;
+  @FXML private Button newUserButton;
   @FXML private TextArea chatArea;
   @FXML private TextArea messageArea;
   @FXML private TextField nicknameTF;
+  @FXML private PasswordField passwdPF;
   @FXML private  TextField modifTF;
   @FXML private TextField diceAmountTF;
   @FXML private ComboBox<String> rollMenu;// = new ComboBox<>(dices);
 
   public void rollButtonClicked() {
+    //TODO: обработать когда ничо не выбрано
     String msg = commands.returnCommand(commands.ROLL_ME);
     String buf = diceAmountTF.getText();
     if(buf.equals("")) buf = "1";
@@ -58,6 +59,26 @@ public class controller implements TCPConnectionListener {
     messageArea.setText("");
   }
 
+  private synchronized void changer(commands command)
+  {
+    this.command = command;
+  }
+  public void newUserButtonClicked(){
+    //TODO сделать невидимой и неактивной newUserButton.
+    if(newUserButton.isVisible())
+    {
+//      Platform.runLater(
+//              () -> {
+//                newUserButton.setVisible(false);
+//              });
+      command = commands.NEW_USER;
+      newUserButton.setVisible(false);
+     // changer(commands.NEW_USER);
+      connectionButtonClicked();
+    }
+
+  }
+
   public void connectionButtonClicked() {
     // if (connectionButton.getText().equals("connection")){
     if (connectionButton.getText().equals("disconnection")) {
@@ -68,9 +89,16 @@ public class controller implements TCPConnectionListener {
       modifTF.setEditable(false);
       diceAmountTF.setEditable(false);
       nicknameTF.setEditable(true);
-
+      command = commands.LOGIN;
+    //  changer(commands.LOGIN);
+      newUserButton.setVisible(true);
+//      Platform.runLater(
+//              () -> {
+//                newUserButton.setVisible(true);
+//              });
       return;
     }
+    newUserButton.setVisible(false);
     nickname = nicknameTF.getText();
     if (checkNickname(nickname)) {
       try {
@@ -112,7 +140,8 @@ public class controller implements TCPConnectionListener {
         () -> {
           connectionButton.setText("disconnection");
         });
-    connection.sendMsg(commands.returnCommand(commands.LOGIN) + nickname);
+    String passwd = passwdPF.getText();
+    connection.sendMsg(commands.returnCommand(command) + nickname + "@" + passwd);
     rollMenu.setItems(dices);
     //rollMenu.
     modifTF.setEditable(true);
@@ -152,7 +181,8 @@ public class controller implements TCPConnectionListener {
   }
 
   @Override
-  public void onException(TCPConnection tcpConnection, Exception e) {
-    printInChatArea("Exception: " + e);
+  public void onException(TCPConnection tcpConnection, Exception e)
+  {
+    //printInChatArea("Exception: " + e);
   }
 }

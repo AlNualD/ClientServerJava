@@ -13,6 +13,7 @@ import user.pckg.UserInf;
 /** основной класс сервера для чата */
 public class ChatServer implements TCPConnectionListener {
   public static void main(String[] args) {
+
     new ChatServer();
   }
 
@@ -21,6 +22,7 @@ public class ChatServer implements TCPConnectionListener {
   // список подключенных соединений
   private final ArrayList<TCPConnection> connections = new ArrayList<>();
   private final ArrayList<UserInf> users = new ArrayList<>();
+  private final DataBaseController DataBase = new DataBaseController();
 
   private ChatServer() {
     System.out.println("Server Running...");
@@ -44,7 +46,7 @@ public class ChatServer implements TCPConnectionListener {
     connections.add(tcpConnection);
    users.add(newUser);
    tcpConnection.setUser(newUser);
-    sendToAllClients("Client Connected: " + tcpConnection);
+    //sendToAllClients("Client Connected: " + tcpConnection);
   }
 
   @Override
@@ -63,10 +65,12 @@ public class ChatServer implements TCPConnectionListener {
         sendToAllClients(tcpConnection.getUser().getNickname() + ": " + msg);
         break;
       case LOGIN:
-        userLogin(tcpConnection, msg);
+        userLogin(tcpConnection, splitLogPass(msg));
         break;
       case ROLL_ME: rollME(tcpConnection,msg);
         break;
+      case NEW_USER: newUser(tcpConnection,splitLogPass(msg));
+      break;
       case EXIT:
         tcpConnection.disconnect();
       default: System.out.println("UNKNOWN COMMAND");
@@ -74,6 +78,24 @@ public class ChatServer implements TCPConnectionListener {
     }
   }
 
+  private void newUser(TCPConnection tcpConnection, String inf[]) {
+    UserInf curUser = tcpConnection.getUser();
+    if(! DataBase.openConnection()){
+      tcpConnection.sendMsg("Try again later");
+      tcpConnection.disconnect();
+      return;
+    };
+
+    curUser.setNickname(inf[0]);
+    curUser.setPasswd(inf[1]);
+    if(!DataBase.addUser(curUser)){
+      tcpConnection.sendMsg("TRY ANOTHER LOGIN AND/OR PASSWORD!");
+      tcpConnection.disconnect();
+      return;
+    };
+    sendToAllClients("New user Connected: " + inf[0]);
+    DataBase.closeConnection();
+  }
   private void rollME(TCPConnection tcpConnection, String formula){
     String[] parts = formula.split("@");
     System.out.println(parts[0]);
@@ -95,11 +117,28 @@ public class ChatServer implements TCPConnectionListener {
     msg += " = " + total;
     sendToAllClients(msg);
   }
-  private void userLogin(TCPConnection tcpConnection, String msg) {
+  private void userLogin(TCPConnection tcpConnection, String inf[]) {
     UserInf curUser = tcpConnection.getUser();
-    curUser.setNickname(msg);
+   if(! DataBase.openConnection()){
+     tcpConnection.sendMsg("Try again later");
+     tcpConnection.disconnect();
+     return;
+   };
+   // String[] inf = msg.split("@");
+    curUser.setNickname(inf[0]);
+    curUser.setPasswd(inf[1]);
+    if(!DataBase.checkUserInf(curUser)){
+      tcpConnection.sendMsg("WRONG LOGIN AND/OR PASSWORD!");
+      tcpConnection.disconnect();
+      return;
+    };
+    sendToAllClients("User Connected: " + inf[0]);
+    DataBase.closeConnection();
   }
 
+  private String[] splitLogPass(String msg){
+    return msg.split("@");
+  };
   @Override
   public synchronized void onDisconnect(TCPConnection tcpConnection) {
     users.remove(tcpConnection.getUser());

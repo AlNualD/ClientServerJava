@@ -8,11 +8,13 @@
         <TextArea fx:id="messageArea" editable="false" layoutX="18.0" layoutY="272.0" prefHeight="100.0" prefWidth="418.0" wrapText="true" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="10" />
         <TextArea fx:id="chatArea" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="248.0" prefWidth="574.0" wrapText="true" AnchorPane.bottomAnchor="130" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="40" />
         <Button fx:id="sendButton" layoutX="410.0" layoutY="454.0" mnemonicParsing="false" onAction="#sendButtonClicked" text="Send" AnchorPane.bottomAnchor="20.399999999999977" AnchorPane.rightAnchor="110.80000000000001" />
-        <Button fx:id="connectionButton" layoutX="410.0" layoutY="4.0" mnemonicParsing="false" onAction="#connectionButtonClicked" text="Connection" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="8" />
-        <TextField fx:id="nicknameTF" editable="true" layoutX="56.0" layoutY="4.0" AnchorPane.rightAnchor="100" AnchorPane.topAnchor="8" />
+        <Button fx:id="connectionButton" layoutX="335.0" layoutY="8.0" mnemonicParsing="false" onAction="#connectionButtonClicked" text="Connection" AnchorPane.rightAnchor="201.2" AnchorPane.topAnchor="8.0" />
+        <TextField fx:id="nicknameTF" editable="true" layoutX="14.0" layoutY="8.0" AnchorPane.rightAnchor="450.2" AnchorPane.topAnchor="8.0" />
       <ComboBox fx:id="rollMenu" layoutX="474.0" layoutY="381.0" prefHeight="26.0" prefWidth="77.0" AnchorPane.bottomAnchor="92.60000000000002" AnchorPane.rightAnchor="61.39999999999998" />
       <TextField fx:id="diceAmountTF" editable="false" layoutX="428.0" layoutY="381.0" prefHeight="26.0" prefWidth="43.0" AnchorPane.bottomAnchor="93.0" AnchorPane.rightAnchor="142.0" />
       <Button fx:id="rollButton" layoutX="439.0" layoutY="417.0" mnemonicParsing="false" onAction="#rollButtonClicked" text="Roll" AnchorPane.bottomAnchor="57.4" AnchorPane.rightAnchor="114.2" />
       <TextField fx:id="modifTF" editable="false" layoutX="536.0" layoutY="381.0" prefHeight="26.0" prefWidth="60.0" AnchorPane.bottomAnchor="93.0" AnchorPane.rightAnchor="2.0" />
+      <PasswordField fx:id="passwdPF" layoutX="173.0" layoutY="8.0" />
+      <Button fx:id="newUserButton" layoutX="424.0" layoutY="8.0" mnemonicParsing="false" onAction="#newUserButtonClicked" text="New User" />
     </children>
 </AnchorPane>
