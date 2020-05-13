@@ -12,6 +12,9 @@ public class CommandsController implements CommandsControllerInterface {
     if (msg.matches(commands.returnRegex(commands.SEND_ALL))) {
       return commands.SEND_ALL;
     }
+    if (msg.matches(commands.returnRegex(commands.SEND_GROUP))) {
+      return  commands.SEND_GROUP;
+    }
     if (msg.matches(commands.returnRegex(commands.LOGIN))) {
       return commands.LOGIN;
     }
@@ -21,12 +24,17 @@ public class CommandsController implements CommandsControllerInterface {
     if (msg.matches(commands.returnRegex(commands.SEND_SINGLE))) {
       return commands.SEND_SINGLE;
     }
-
+    if (msg.matches(commands.returnRegex(commands.CONNECT_GROUP))) {
+      return commands.CONNECT_GROUP;
+    }
     if (msg.matches(commands.returnRegex(commands.EXIT))) {
       return commands.EXIT;
     }
     if(msg.matches(commands.returnRegex(commands.NEW_USER))){
       return  commands.NEW_USER;
+    }
+    if(msg.matches(commands.returnRegex(commands.GROUP_NEW))) {
+      return  commands.GROUP_NEW;
     }
     return commands.ERROR;
   }

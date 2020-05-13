@@ -23,6 +23,7 @@ public class ChatServer implements TCPConnectionListener {
   private final ArrayList<TCPConnection> connections = new ArrayList<>();
   private final ArrayList<UserInf> users = new ArrayList<>();
   private final DataBaseController DataBase = new DataBaseController();
+  private final GroupsController groups = new GroupsController(DataBase);
 
   private ChatServer() {
     System.out.println("Server Running...");
@@ -65,17 +66,35 @@ public class ChatServer implements TCPConnectionListener {
         sendToAllClients(tcpConnection.getUser().getNickname() + ": " + msg);
         break;
       case LOGIN:
-        userLogin(tcpConnection, splitLogPass(msg));
+        userLogin(tcpConnection, splitter(msg));
         break;
       case ROLL_ME: rollME(tcpConnection,msg);
         break;
-      case NEW_USER: newUser(tcpConnection,splitLogPass(msg));
+        case SEND_GROUP: sendToGroup(tcpConnection,splitter(msg));
+            break;
+      case NEW_USER: newUser(tcpConnection, splitter(msg));
       break;
       case EXIT:
         tcpConnection.disconnect();
+        break;
+      case GROUP_NEW: newGroup(tcpConnection, splitter(msg));
+          break;
       default: System.out.println("UNKNOWN COMMAND");
       break;
     }
+  }
+
+  private void sendToGroup(TCPConnection tcpConnection, String[] inf){//id@msg
+    ArrayList<UserInf> gr = groups.getGroup(Integer.parseInt(inf[0]));
+    String msg = tcpConnection.getUser().getNickname() + ": " + inf[1];
+    for (UserInf userInf : gr) {
+      //
+        userInf.getTcpConnection().sendMsg(msg);
+    }
+  }
+
+  private void newGroup(TCPConnection tcpConnection, String inf[]) { //name@id_adm
+      groups.addGroup(inf[0].hashCode()%1000, tcpConnection.getUser(), inf[0]);
   }
 
   private void newUser(TCPConnection tcpConnection, String inf[]) {
@@ -97,6 +116,7 @@ public class ChatServer implements TCPConnectionListener {
     DataBase.closeConnection();
   }
   private void rollME(TCPConnection tcpConnection, String formula){
+      //TODO добавить броски с помехой/преимуществом а также отсылку в группу
     String[] parts = formula.split("@");
     System.out.println(parts[0]);
     System.out.println(parts[1]);
@@ -136,7 +156,7 @@ public class ChatServer implements TCPConnectionListener {
     DataBase.closeConnection();
   }
 
-  private String[] splitLogPass(String msg){
+  private String[] splitter(String msg){
     return msg.split("@");
   };
   @Override

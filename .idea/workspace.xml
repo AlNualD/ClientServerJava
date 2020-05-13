@@ -2,20 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bd823455-46a5-4e14-9f9a-f8032d677865" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/chat/server/DataBaseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/chat/server/DataBaseInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/server/tests/DataBaseTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/chat/server/GroupsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/chat/server/GroupsControllerInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/chat/client/controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/chat/client/controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/chat/client/primaryStage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/chat/client/primaryStage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/network/src/common/commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/common/commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/network/src/user/pckg/UserInf.java" beforeDir="false" afterPath="$PROJECT_DIR$/network/src/user/pckg/UserInf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/client/chat/client/controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/client/chat/client/controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/client/chat/client/primaryStage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/client/chat/client/primaryStage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/server/chat/server/ChatServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/server/chat/server/ChatServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/chat/server/ChatServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/chat/server/ChatServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/chat/server/CommandsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/chat/server/CommandsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/chat/server/DataBaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/chat/server/DataBaseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/chat/server/DataBaseInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/chat/server/DataBaseInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,10 +191,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="72" key="#Plugins/0.0.1536.824@0.0.1536.824" timestamp="1587618750026" />
-    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1589203631053">
+    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser" timestamp="1589368353736">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1589203631053" />
+    <state x="574" y="123" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1589368353736" />
     <state x="499" y="194" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1588931041657">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

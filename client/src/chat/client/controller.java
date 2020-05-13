@@ -15,7 +15,7 @@ import network.pckg.TCPConnectionListener;
 import common.commands;
 
 public class controller implements TCPConnectionListener {
-
+//TODO: сделать броски с преимуществом и помехой
   private TCPConnection connection;
     //private ObservableList<String> dices  = FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d12", "20");
     private ObservableList<String> dices = FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d12", "d20");
