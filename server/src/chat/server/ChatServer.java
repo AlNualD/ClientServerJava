@@ -43,6 +43,7 @@ public class ChatServer implements TCPConnectionListener {
 
   @Override
   public synchronized void onConnectionReady(TCPConnection tcpConnection) {
+    System.out.println("NEW CONNECT");
     UserInf newUser = new UserInf(tcpConnection);
     connections.add(tcpConnection);
    users.add(newUser);
@@ -53,6 +54,7 @@ public class ChatServer implements TCPConnectionListener {
   @Override
   public synchronized void onReceiveString(TCPConnection tcpConnection, String value) {
      //sendToAllClients(value);
+    System.out.println("NEW MSG");
     commands command = commandsController.parseMSG(value);
     if (command == commands.EXIT) {
       tcpConnection.disconnect();
@@ -72,6 +74,8 @@ public class ChatServer implements TCPConnectionListener {
         break;
         case SEND_GROUP: sendToGroup(tcpConnection,splitter(msg));
             break;
+      case CONNECT_GROUP: connectToGroup(tcpConnection,splitter(msg));
+        break;
       case NEW_USER: newUser(tcpConnection, splitter(msg));
       break;
       case EXIT:
@@ -83,8 +87,15 @@ public class ChatServer implements TCPConnectionListener {
       break;
     }
   }
+  private void connectToGroup(TCPConnection tcpConnection, String[] inf){ //id@
+    System.out.println("WANTS TO CONNECT TO GROUP" + inf[0]);
+    groups.connectToGroup(Integer.parseInt(inf[0]),tcpConnection.getUser());
+    inf[1] = "connect to this group";
+    sendToGroup(tcpConnection,inf);
+  }
 
   private void sendToGroup(TCPConnection tcpConnection, String[] inf){//id@msg
+    System.out.println("WANTS TO SEND TO GROUP " + inf[0]);
     ArrayList<UserInf> gr = groups.getGroup(Integer.parseInt(inf[0]));
     String msg = tcpConnection.getUser().getNickname() + ": " + inf[1];
     for (UserInf userInf : gr) {
@@ -94,10 +105,12 @@ public class ChatServer implements TCPConnectionListener {
   }
 
   private void newGroup(TCPConnection tcpConnection, String inf[]) { //name@id_adm
-      groups.addGroup(inf[0].hashCode()%1000, tcpConnection.getUser(), inf[0]);
+    System.out.println("NEW GROUP " + inf[0]);
+    groups.addGroup(inf[0].hashCode()%1000, tcpConnection.getUser(), inf[0]);
   }
 
   private void newUser(TCPConnection tcpConnection, String inf[]) {
+    System.out.println("NEW USER" + inf[0]);
     UserInf curUser = tcpConnection.getUser();
     if(! DataBase.openConnection()){
       tcpConnection.sendMsg("Try again later");
@@ -117,6 +130,7 @@ public class ChatServer implements TCPConnectionListener {
   }
   private void rollME(TCPConnection tcpConnection, String formula){
       //TODO добавить броски с помехой/преимуществом а также отсылку в группу
+
     String[] parts = formula.split("@");
     System.out.println(parts[0]);
     System.out.println(parts[1]);
@@ -138,6 +152,7 @@ public class ChatServer implements TCPConnectionListener {
     sendToAllClients(msg);
   }
   private void userLogin(TCPConnection tcpConnection, String inf[]) {
+    System.out.println("userLOG IN");
     UserInf curUser = tcpConnection.getUser();
    if(! DataBase.openConnection()){
      tcpConnection.sendMsg("Try again later");

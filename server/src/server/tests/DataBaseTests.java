@@ -20,4 +20,15 @@ public class DataBaseTests extends TestCase{
         user.setPasswd("wrong");
         assertFalse(DataBase.checkUserInf(user));
     }
+    public void testAddGroup() {
+        DataBaseController DataBase = new DataBaseController();
+        DataBase.openConnection();
+        String name = "MyGroup3";
+        int id = name.hashCode()%1000;
+        assertFalse(DataBase.addGroup(id,6818,name));
+        assertTrue(DataBase.checkGroup(id));
+        assertTrue(DataBase.checkGroup(id,6818));
+        assertFalse(DataBase.checkGroup(id,1432));
+    }
+
 }

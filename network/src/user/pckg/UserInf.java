@@ -7,7 +7,11 @@ public class UserInf {
   private String nickname = "name";
   private  String passwd = "passwd";
   private TCPConnection tcpConnection;
+  private int curGroup = 0;
 
+  public boolean openToAll(){
+    return curGroup == 0;
+  }
   public UserInf(int id, String nickname, String passwd) {
     this.id = id;
     this.nickname = nickname;
@@ -48,5 +52,13 @@ public class UserInf {
   public void setPasswd(String passwd) {
     if (passwd.length() > 0 && passwd.length() < 30)
     this.passwd = passwd;
+  }
+
+  public int getCurGroup() {
+    return curGroup;
+  }
+
+  public void setCurGroup(int curGroup) {
+    this.curGroup = curGroup;
   }
 }

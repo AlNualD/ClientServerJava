@@ -69,6 +69,7 @@ public class DataBaseController implements DataBaseInterface {
             sqlConnection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
 
         return false;
@@ -101,6 +102,35 @@ public class DataBaseController implements DataBaseInterface {
             String command = "SELECT * FROM groupsusers WHERE id_code = " + id + ";";
             ResultSet resultSet = sqlStatement.executeQuery(command);
             //resultSet.first();
+            //if(!resultSet.next()) return false;
+            if(!resultSet.next()) {
+                resultSet.close();
+                sqlStatement.close();
+               sqlConnection.commit();
+                return false;
+            }
+
+            resultSet.close();
+            sqlStatement.close();
+            sqlConnection.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public boolean checkGroup(int id_group, int id_user) {
+        //SELECT * FROM groupsusers
+        //WHERE id_code = 1234 --group
+        //AND 2524 = ANY (players);
+        try {
+            sqlStatement = sqlConnection.createStatement();
+            String command = "SELECT * FROM groupsusers WHERE id_code = " + id_group + " AND " + id_user + " = ANY (players);";
+            ResultSet resultSet = sqlStatement.executeQuery(command);
+            //resultSet.first();
 
             if(!resultSet.next()) {
                 resultSet.close();
@@ -116,7 +146,7 @@ public class DataBaseController implements DataBaseInterface {
             e.printStackTrace();
         }
 
-        return false;
+        return true;
     }
 
     @Override

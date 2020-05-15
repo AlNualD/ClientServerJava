@@ -15,6 +15,7 @@ import network.pckg.TCPConnectionListener;
 import common.commands;
 
 public class controller implements TCPConnectionListener {
+
 //TODO: сделать броски с преимуществом и помехой
   private TCPConnection connection;
     //private ObservableList<String> dices  = FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d12", "20");
@@ -32,6 +33,17 @@ public class controller implements TCPConnectionListener {
   @FXML private  TextField modifTF;
   @FXML private TextField diceAmountTF;
   @FXML private ComboBox<String> rollMenu;// = new ComboBox<>(dices);
+
+  @FXML public void initialize(){
+    //
+    rollMenu.setItems(dices);
+    modifTF.textProperty().addListener((observable, oldValue, newValue) -> {
+      if (!numberPattern.matcher(newValue).matches()) modifTF.setText(oldValue);
+    });
+    diceAmountTF.textProperty().addListener((observable, oldValue, newValue) -> {
+      if (!numberABSPattern.matcher(newValue).matches()) diceAmountTF.setText(oldValue);
+    });
+  }
 
   public void rollButtonClicked() {
     //TODO: обработать когда ничо не выбрано
@@ -142,19 +154,19 @@ public class controller implements TCPConnectionListener {
         });
     String passwd = passwdPF.getText();
     connection.sendMsg(commands.returnCommand(command) + nickname + "@" + passwd);
-    rollMenu.setItems(dices);
+    //rollMenu.setItems(dices);
     //rollMenu.
     modifTF.setEditable(true);
     diceAmountTF.setEditable(true);
 
     //rollMenu.setValue("d20");
     //TODO: убрать наложение листнеров. Сделать однократное
-    modifTF.textProperty().addListener((observable, oldValue, newValue) -> {
-      if (!numberPattern.matcher(newValue).matches()) modifTF.setText(oldValue);
-    });
-    diceAmountTF.textProperty().addListener((observable, oldValue, newValue) -> {
-      if (!numberABSPattern.matcher(newValue).matches()) diceAmountTF.setText(oldValue);
-    });
+//    modifTF.textProperty().addListener((observable, oldValue, newValue) -> {
+//      if (!numberPattern.matcher(newValue).matches()) modifTF.setText(oldValue);
+//    });
+//    diceAmountTF.textProperty().addListener((observable, oldValue, newValue) -> {
+//      if (!numberABSPattern.matcher(newValue).matches()) diceAmountTF.setText(oldValue);
+//    });
   }
 
   private javafx.event.EventHandler<WindowEvent> openEventHandler = new javafx.event.EventHandler<WindowEvent>() {
