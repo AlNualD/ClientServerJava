@@ -12,11 +12,11 @@ public class DataBaseTests extends TestCase{
         assertTrue(DataBase.IsActive());
         DataBase.closeConnection();
     }
-    public void testAddUser(){
+    public void testCheckUser(){
         DataBaseController DataBase = new DataBaseController();
         String name = "Felix";
-        UserInf user = new UserInf(name.hashCode()%100000, name,"1q2w3e4r5t");
-        assertFalse(DataBase.addUser(user)); //этот пользователь уже существует
+        UserInf user = new UserInf(name.hashCode() % 100000, name,"1q2w3e4r5t");
+        //assertTrue(DataBase.addUser(user)); //этот пользователь уже существует
         assertTrue(DataBase.checkUserInf(user));
         user.setPasswd("wrong");
         assertFalse(DataBase.checkUserInf(user));

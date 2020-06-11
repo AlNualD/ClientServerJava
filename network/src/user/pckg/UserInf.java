@@ -15,7 +15,7 @@ public class UserInf {
   public UserInf(int id, String nickname, String passwd) {
     this.id = id;
     this.nickname = nickname;
-    this.passwd = "passwd";
+    this.passwd = passwd;
     //this.tcpConnection = tcpConnection;
   }
 
