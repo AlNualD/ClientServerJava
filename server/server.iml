@@ -8,5 +8,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="network" />
+    <orderEntry type="library" name="junit-3.8.2" level="project" />
+    <orderEntry type="library" name="postgresql-42.2.12" level="project" />
   </component>
 </module>
