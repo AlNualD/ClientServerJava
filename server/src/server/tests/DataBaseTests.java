@@ -1,5 +1,6 @@
 package server.tests;
 
+import chat.server.GroupsController;
 import junit.framework.TestCase;
 import chat.server.DataBaseController;
 import user.pckg.UserInf;
@@ -9,26 +10,25 @@ public class DataBaseTests extends TestCase{
         DataBaseController DataBase = new DataBaseController();
         assertTrue(DataBase.openConnection());
         assertTrue(DataBase.IsActive());
+        DataBase.closeConnection();
     }
     public void testAddUser(){
         DataBaseController DataBase = new DataBaseController();
-        DataBase.openConnection();
         String name = "Felix";
-        UserInf user = new UserInf(name.hashCode()%10000,name,"passwd");
-        assertFalse(DataBase.addUser(user));
+        UserInf user = new UserInf(name.hashCode()%100000, name,"1q2w3e4r5t");
+        assertFalse(DataBase.addUser(user)); //этот пользователь уже существует
         assertTrue(DataBase.checkUserInf(user));
         user.setPasswd("wrong");
         assertFalse(DataBase.checkUserInf(user));
     }
-    public void testAddGroup() {
+    public void testConnectToGroup() {
         DataBaseController DataBase = new DataBaseController();
-        DataBase.openConnection();
-        String name = "MyGroup3";
-        int id = name.hashCode()%1000;
-        assertFalse(DataBase.addGroup(id,6818,name));
-        assertTrue(DataBase.checkGroup(id));
-        assertTrue(DataBase.checkGroup(id,6818));
-        assertFalse(DataBase.checkGroup(id,1432));
+        GroupsController groupsController = new GroupsController(DataBase);
+        String  gname = "friends";
+        String name = "Felix";
+        UserInf user = new UserInf(name.hashCode()%100000, name,"1q2w3e4r5t");
+        assertTrue(groupsController.connectToGroup(groupsController.getGroupId(gname),user));
+
     }
 
 }
