@@ -22,5 +22,5 @@ jobs:
     - name: server-junit container build and run
       run: |
         echo Starting testing,
-        docker build -f DockerfileForTests -t server-junit . 
+        docker build -f DockerForTest -t server-junit . 
         docker run server-junit  
