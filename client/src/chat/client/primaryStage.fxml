@@ -3,18 +3,46 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="613.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chat.client.controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="false" prefHeight="532.0" prefWidth="613.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chat.client.controller">
     <children>
-        <TextArea fx:id="messageArea" editable="false" layoutX="18.0" layoutY="272.0" prefHeight="100.0" prefWidth="418.0" wrapText="true" AnchorPane.bottomAnchor="20" AnchorPane.leftAnchor="10" />
-        <TextArea fx:id="chatArea" editable="false" layoutX="14.0" layoutY="14.0" prefHeight="248.0" prefWidth="574.0" wrapText="true" AnchorPane.bottomAnchor="130" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="40" />
-        <Button fx:id="sendButton" layoutX="410.0" layoutY="454.0" mnemonicParsing="false" onAction="#sendButtonClicked" text="Send" AnchorPane.bottomAnchor="20.399999999999977" AnchorPane.rightAnchor="110.80000000000001" />
-        <Button fx:id="connectionButton" layoutX="335.0" layoutY="8.0" mnemonicParsing="false" onAction="#connectionButtonClicked" text="Connection" AnchorPane.rightAnchor="201.2" AnchorPane.topAnchor="8.0" />
-        <TextField fx:id="nicknameTF" editable="true" layoutX="14.0" layoutY="8.0" AnchorPane.rightAnchor="450.2" AnchorPane.topAnchor="8.0" />
-      <ComboBox fx:id="rollMenu" layoutX="474.0" layoutY="381.0" prefHeight="26.0" prefWidth="77.0" AnchorPane.bottomAnchor="92.60000000000002" AnchorPane.rightAnchor="61.39999999999998" />
-      <TextField fx:id="diceAmountTF" editable="false" layoutX="428.0" layoutY="381.0" prefHeight="26.0" prefWidth="43.0" AnchorPane.bottomAnchor="93.0" AnchorPane.rightAnchor="142.0" />
-      <Button fx:id="rollButton" layoutX="439.0" layoutY="417.0" mnemonicParsing="false" onAction="#rollButtonClicked" text="Roll" AnchorPane.bottomAnchor="57.4" AnchorPane.rightAnchor="114.2" />
-      <TextField fx:id="modifTF" editable="false" layoutX="536.0" layoutY="381.0" prefHeight="26.0" prefWidth="60.0" AnchorPane.bottomAnchor="93.0" AnchorPane.rightAnchor="2.0" />
-      <PasswordField fx:id="passwdPF" layoutX="173.0" layoutY="8.0" />
-      <Button fx:id="newUserButton" layoutX="424.0" layoutY="8.0" mnemonicParsing="false" onAction="#newUserButtonClicked" text="New User" />
+        <TextArea fx:id="messageArea" editable="false" layoutX="10.0" layoutY="393.0" prefHeight="100.0" prefWidth="418.0" promptText="enter message" wrapText="true" AnchorPane.bottomAnchor="7.0" AnchorPane.leftAnchor="10.0" />
+        <Button fx:id="sendButton" layoutX="427.0" layoutY="467.0" mnemonicParsing="false" onAction="#sendButtonClicked" text="Send" AnchorPane.bottomAnchor="7.399999999999977" AnchorPane.rightAnchor="142.8" />
+        <Button fx:id="connectionButton" layoutX="331.0" layoutY="34.0" mnemonicParsing="false" onAction="#connectionButtonClicked" text="Connection" AnchorPane.rightAnchor="205.2" AnchorPane.topAnchor="34.0" />
+        <TextField fx:id="nicknameTF" editable="true" layoutX="10.0" layoutY="34.0" promptText="enter username" AnchorPane.rightAnchor="454.2" AnchorPane.topAnchor="34.0" />
+      <ComboBox fx:id="rollMenu" layoutX="470.0" layoutY="425.0" prefHeight="26.0" prefWidth="77.0" AnchorPane.bottomAnchor="80.60000000000002" AnchorPane.rightAnchor="65.39999999999998" />
+      <TextField fx:id="diceAmountTF" editable="false" layoutX="427.0" layoutY="393.0" prefHeight="26.0" prefWidth="43.0" AnchorPane.bottomAnchor="80.60000000000002" AnchorPane.rightAnchor="142.8" />
+      <Button fx:id="rollButton" layoutX="427.0" layoutY="440.0" mnemonicParsing="false" onAction="#rollButtonClicked" prefHeight="26.0" prefWidth="43.0" text="Roll" AnchorPane.bottomAnchor="33.60000000000002" AnchorPane.rightAnchor="142.8" />
+      <TextField fx:id="modifTF" editable="false" layoutX="550.0" layoutY="393.0" prefHeight="26.0" prefWidth="61.0" AnchorPane.bottomAnchor="81.0" AnchorPane.rightAnchor="3.0" />
+      <PasswordField fx:id="passwdPF" layoutX="173.0" layoutY="34.0" promptText="enter password" />
+      <Button fx:id="newUserButton" layoutX="415.0" layoutY="34.0" mnemonicParsing="false" onAction="#newUserButtonClicked" text="New User" />
+      <Button fx:id="groupsButton" layoutX="525.0" layoutY="21.0" mnemonicParsing="false" onAction="#groupsButtonClicked" text="Groups" />
+      <TabPane layoutX="3.0" layoutY="68.0" prefHeight="350.0" prefWidth="606.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="commonChatTab" text="Common Chat">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                          <TextArea fx:id="chatArea" editable="false" layoutX="3.0" layoutY="6.0" prefHeight="310.0" prefWidth="598.0" wrapText="true" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="3.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="6.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="groupChatTab" disable="true" text="Group Chat">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="320.0" prefWidth="595.0">
+                     <children>
+                        <TextArea fx:id="groupChatArea" editable="false" layoutY="4.0" prefHeight="314.0" prefWidth="604.0" wrapText="true" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Label layoutX="14.0" layoutY="12.0" text="Username" />
+      <Label layoutX="173.0" layoutY="12.0" text="Password" />
+      <Slider fx:id="rollModeSlider" blockIncrement="1.0" layoutX="501.0" layoutY="456.0" majorTickUnit="2.0" max="1.0" min="-1.0" minorTickCount="1" orientation="VERTICAL" prefHeight="58.0" prefWidth="22.0" showTickMarks="true" snapToTicks="true" />
+      <Label layoutX="523.0" layoutY="456.0" text="advantage" />
+      <Label layoutX="523.0" layoutY="503.0" text="hindrance" />
+      <Label layoutX="523.0" layoutY="477.0" text="simple" />
     </children>
 </AnchorPane>

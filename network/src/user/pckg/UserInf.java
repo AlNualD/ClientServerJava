@@ -31,10 +31,14 @@ public class UserInf {
 
   public void setNickname(String nickname) {
     this.nickname = nickname;
+    id = nickname.hashCode() % 100000;
   }
 
   public int getId() {
     return id;
+  }
+  public void setId(int id){
+    this.id = id;
   }
 
   public TCPConnection getTcpConnection() {

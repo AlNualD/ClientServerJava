@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="376.0" prefWidth="536.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chat.client.GroupsMenuController">
+   <children>
+      <TextField fx:id="gnameTF" layoutX="31.0" layoutY="42.0" />
+      <Button fx:id="connectButton" layoutX="187.0" layoutY="42.0" mnemonicParsing="false" onAction="#connectToGroupButtonClicked" text="Connect" />
+      <Button fx:id="newGroupButton" layoutX="248.0" layoutY="42.0" mnemonicParsing="false" onAction="#newGroupButtonClicked" text="NewGroup" />
+      <Label layoutX="31.0" layoutY="25.0" text="GroupID" />
+      <Label layoutX="31.0" layoutY="70.0" text="Amount Of members:" />
+      <TitledPane animated="false" layoutX="231.0" layoutY="79.0" text="Settings">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="258.0">
+               <children>
+                  <CheckBox fx:id="openGroupCheckBox" disable="true" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#groupTypeChange" selected="true" text="OpenGroup" />
+                  <Label layoutX="14.0" layoutY="42.0" text="Admin:" />
+                  <TextField fx:id="adminTF" editable="false" layoutX="57.0" layoutY="38.0" />
+                  <Button layoutX="206.0" layoutY="38.0" mnemonicParsing="false" onAction="#changeAdminButtonCkicked" text="Save" />
+                  <TextField fx:id="newPlayerTF" editable="false" layoutX="14.0" layoutY="110.0" />
+                  <Button layoutX="163.0" layoutY="110.0" mnemonicParsing="false" onAction="#addButtonClicked" text="Add" />
+               </children></AnchorPane>
+        </content>
+      </TitledPane>
+      <TitledPane layoutX="31.0" layoutY="86.0" prefHeight="200.0" prefWidth="200.0" text="Players">
+         <content>
+            <ListView fx:id="playersList" prefHeight="185.0" prefWidth="198.0" />
+         </content>
+      </TitledPane>
+      <Label fx:id="amountLabel" layoutX="152.0" layoutY="70.0" />
+      <Button layoutX="105.0" layoutY="296.0" mnemonicParsing="false" onAction="#refreshButtonClicked" text="Refresh" />
+   </children>
+</AnchorPane>

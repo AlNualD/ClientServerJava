@@ -10,6 +10,12 @@ public enum commands {
   NEW_USER,
   GROUP_NEW,
   CONNECT_GROUP,
+  DISCONNECT_GROUP,
+  ADD_TO_GROUP,
+  Get_GROUP_INF,
+  Get_GROUP_MEMBERS,
+  CHANGE_GROUP_TYPE,
+  CHANGE_ADMIN,
   ERROR;
 
   public static String returnRegex(commands command) {
@@ -24,8 +30,14 @@ public enum commands {
       case EXIT: return "^##DISCONNECT##";
       case ROLL_ME: return  "^##ROLL_DICE##.*";
       case CONNECT_GROUP: return "^##CONNECTGROUP##.*";
+      case ADD_TO_GROUP: return "^##ADD_TO_GR##.*";
       case NEW_USER: return "^##NEW_USER##.*";
       case GROUP_NEW: return "^##NEW_GROUP##.*";
+      case Get_GROUP_INF: return "^##INF_GROUP##.*";
+      case Get_GROUP_MEMBERS: return "^##MEMBERS_GROUP##.*";
+      case DISCONNECT_GROUP: return "^##DISCONNECTGROUP##.*";
+      case CHANGE_GROUP_TYPE: return  "^##CHANGETYPE##.*";
+      case CHANGE_ADMIN: return "^##CHANGEADMIN##.*";
       case ERROR:
         return "ERR";
     }
@@ -45,8 +57,14 @@ public enum commands {
         return "##DISCONNECT##";
       case ROLL_ME: return "##ROLL_DICE##";
       case CONNECT_GROUP: return "##CONNECTGROUP##";
+      case ADD_TO_GROUP: return "##ADD_TO_GR##";
       case NEW_USER: return "##NEW_USER##";
       case GROUP_NEW: return "##NEW_GROUP##";
+      case Get_GROUP_INF: return "##INF_GROUP##";
+      case Get_GROUP_MEMBERS: return "##MEMBERS_GROUP##";
+      case DISCONNECT_GROUP: return "##DISCONNECTGROUP##";
+      case CHANGE_GROUP_TYPE: return  "##CHANGETYPE##";
+      case CHANGE_ADMIN: return "^##CHANGEADMIN##.*";
     }
     return  "ERR";
   }

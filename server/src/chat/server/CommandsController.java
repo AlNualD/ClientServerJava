@@ -27,6 +27,12 @@ public class CommandsController implements CommandsControllerInterface {
     if (msg.matches(commands.returnRegex(commands.CONNECT_GROUP))) {
       return commands.CONNECT_GROUP;
     }
+    if (msg.matches(commands.returnRegex(commands.DISCONNECT_GROUP))) {
+      return commands.DISCONNECT_GROUP;
+    }
+    if(msg.matches(commands.returnRegex(commands.ADD_TO_GROUP))) {
+      return commands.ADD_TO_GROUP;
+    }
     if (msg.matches(commands.returnRegex(commands.EXIT))) {
       return commands.EXIT;
     }
@@ -35,6 +41,18 @@ public class CommandsController implements CommandsControllerInterface {
     }
     if(msg.matches(commands.returnRegex(commands.GROUP_NEW))) {
       return  commands.GROUP_NEW;
+    }
+    if(msg.matches(commands.returnRegex(commands.Get_GROUP_INF))) {
+      return commands.Get_GROUP_INF;
+    }
+    if(msg.matches(commands.returnRegex(commands.Get_GROUP_MEMBERS))) {
+      return commands.Get_GROUP_MEMBERS;
+    }
+    if(msg.matches(commands.returnRegex(commands.CHANGE_GROUP_TYPE))) {
+      return commands.CHANGE_GROUP_TYPE;
+    }
+    if(msg.matches(commands.returnRegex(commands.CHANGE_ADMIN))) {
+      return commands.CHANGE_ADMIN;
     }
     return commands.ERROR;
   }
