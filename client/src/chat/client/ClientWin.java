@@ -16,7 +16,6 @@ public class ClientWin extends Application {
   private controller mainController;
 
   public static void main(String[] args) {
-    // new ClientWin();
     Application.launch(args);
   }
 
@@ -28,7 +27,6 @@ public class ClientWin extends Application {
     FXMLLoader loader = new FXMLLoader();
     loader.setLocation(getClass().getResource("primaryStage.fxml"));
     Parent root = loader.load();
-//    Parent root = FXMLLoader.load(getClass().getResource("primaryStage.fxml"));
     primaryStage.setTitle("Client for Chat");
     primaryStage.setScene(new Scene(root));
 

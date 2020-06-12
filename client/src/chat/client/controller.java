@@ -15,10 +15,7 @@ import network.pckg.TCPConnectionListener;
 import common.commands;
 
 public class controller implements TCPConnectionListener {
-
-//TODO: сделать броски с преимуществом и помехой
   private TCPConnection connection;
-    //private ObservableList<String> dices  = FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d12", "20");
     private ObservableList<String> dices = FXCollections.observableArrayList("d4", "d6", "d8", "d10", "d12", "d20");
   private Pattern numberPattern = Pattern.compile("((\\+|-)?\\d*)");
   private Pattern numberABSPattern = Pattern.compile("(\\d*)");
@@ -84,11 +81,7 @@ public class controller implements TCPConnectionListener {
     } else {
       msg = commands.returnCommand(commands.SEND_ALL) + msg;
     }
-
-    //msg = nickname + ": " + msg;
-
     connection.sendMsg(msg);
-    // chatArea.appendText(messageArea.getText() + "\n");
     messageArea.setText("");
   }
 
@@ -97,23 +90,16 @@ public class controller implements TCPConnectionListener {
     this.command = command;
   }
   public void newUserButtonClicked(){
-    //TODO сделать невидимой и неактивной newUserButton.
     if(newUserButton.isVisible())
     {
-//      Platform.runLater(
-//              () -> {
-//                newUserButton.setVisible(false);
-//              });
       command = commands.NEW_USER;
       newUserButton.setVisible(false);
-     // changer(commands.NEW_USER);
       connectionButtonClicked();
     }
 
   }
 
   public void connectionButtonClicked() {
-    // if (connectionButton.getText().equals("connection")){
     if (connectionButton.getText().equals("disconnection")) {
         connection.sendMsg(commands.returnCommand(commands.EXIT));
         connection.disconnect();
@@ -123,12 +109,7 @@ public class controller implements TCPConnectionListener {
         diceAmountTF.setEditable(false);
         nicknameTF.setEditable(true);
         command = commands.LOGIN;
-        //  changer(commands.LOGIN);
         newUserButton.setVisible(true);
-//      Platform.runLater(
-//              () -> {
-//                newUserButton.setVisible(true);
-//              });
         return;
     }
     newUserButton.setVisible(false);
@@ -146,12 +127,6 @@ public class controller implements TCPConnectionListener {
         printInChatArea("Connection failed");
       }
     }
-   //
-    // }
-    // else {
-    //    connection.disconnect();
-    // messageArea.setEditable(false);
-    // }
   }
 
   private boolean checkNickname(String nickname) {
@@ -183,16 +158,7 @@ public class controller implements TCPConnectionListener {
     connection.sendMsg(commands.returnCommand(command) + nickname + "@" + passwd);
     modifTF.setEditable(true);
     diceAmountTF.setEditable(true);
-
-    //rollMenu.setValue("d20");
-//    modifTF.textProperty().addListener((observable, oldValue, newValue) -> {
-//      if (!numberPattern.matcher(newValue).matches()) modifTF.setText(oldValue);
-//    });
-//    diceAmountTF.textProperty().addListener((observable, oldValue, newValue) -> {
-//      if (!numberABSPattern.matcher(newValue).matches()) diceAmountTF.setText(oldValue);
-//    });
   }
-//TODO: make onClose Request to Disconnect
   private javafx.event.EventHandler<WindowEvent> closeEventHandler = new javafx.event.EventHandler<WindowEvent>() {
     @Override
     public void handle(WindowEvent event) {
@@ -216,7 +182,6 @@ public class controller implements TCPConnectionListener {
   @Override
   public void onReceiveString(TCPConnection tcpConnection, String value) {
     if (value == null) {
-      //System.out.println("nullpointer");
       return;
     }
     String[] inf = value.split("@");

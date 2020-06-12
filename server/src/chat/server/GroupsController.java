@@ -13,8 +13,6 @@ public class GroupsController implements GroupsControllerInterface {
     }
     @Override
     public ArrayList<UserInf> getGroup(int id) {
-
-        // TODO: change this
         System.out.println("Ret GR "+id);
         return groups.get(id);
     }
@@ -32,7 +30,6 @@ public class GroupsController implements GroupsControllerInterface {
 
     @Override
     public boolean addToGroup(int id_group, int id_person) {
-           // groups.get(id_group).add(user);
         if(isPinG(id_group,id_person)) {
             return false;
         }
@@ -58,17 +55,6 @@ public class GroupsController implements GroupsControllerInterface {
         return false;
     }
 
-    @Override
-    public int getGroupAdmin(int id) {
-        return groups.get(id).get(0).getId();
-        //TODO make this
-    }
-
-    @Override
-    public String getGroupName(int id) {
-        return null;
-        // TODO make this
-    }
 
     @Override
     public boolean connectToGroup(int id, UserInf user) {
@@ -99,6 +85,9 @@ public class GroupsController implements GroupsControllerInterface {
         System.out.println("disCONNECT TO GROUP " + id);
         if(idCheck(id)){
             groups.get(id).remove(user);
+            if(groups.get(id).isEmpty()) {
+                groups.remove(id);
+            }
         }
         return false;
     }

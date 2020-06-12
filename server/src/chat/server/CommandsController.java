@@ -63,9 +63,4 @@ public class CommandsController implements CommandsControllerInterface {
     return msg.substring(commands.returnCommand(command).length());
   }
 
-  //    @Override
-  //    public void control(commands command) {
-  //
-  //    }
-
 }

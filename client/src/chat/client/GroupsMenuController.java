@@ -53,23 +53,6 @@ public class GroupsMenuController {
 
     public  void connectToGroupButtonClicked() {
 
-
-    //    newUserButton.setVisible(false);
-    //    nickname = nicknameTF.getText();
-    //    if (checkNickname(nickname)) {
-    //      try {
-    //
-    //        nicknameTF.setEditable(false);
-    //        connection = new TCPConnection(this, "127.0.0.1", 8000); // "192.168.99.101", 8080);
-    //        messageArea.setEditable(true);
-    //
-    //      } catch (IOException e) {
-    //        e.printStackTrace();
-    //        System.out.println("smthng wrong");
-    //        printInChatArea("Connection failed");
-    //      }
-
-
           if (connectButton.getText().equals("disconnect")) {
 
               connection.sendMsg(commands.returnCommand(commands.DISCONNECT_GROUP) + group);

@@ -16,10 +16,8 @@ public class UserInf {
     this.id = id;
     this.nickname = nickname;
     this.passwd = passwd;
-    //this.tcpConnection = tcpConnection;
   }
 
- // public  UserInf
 
   public UserInf(TCPConnection tcpConnection) {
     this.tcpConnection = tcpConnection;

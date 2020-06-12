@@ -18,7 +18,6 @@ public class DataBaseController implements DataBaseInterface {
         try {
             return sqlConnection.isValid(1);
         } catch (SQLException e) {
-            //e.printStackTrace();
             return false;
         }
     }
@@ -27,7 +26,6 @@ public class DataBaseController implements DataBaseInterface {
     public boolean openConnection() {
         try {
             Class.forName("org.postgresql.Driver");
-            //sqlConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ChatUsers","postgres", "43fyfyfc");
             sqlConnection = DriverManager.getConnection("jdbc:postgresql://localhost:5432/ChatServerDB", "ChatServer", "12345");
             sqlConnection.setAutoCommit(false);
 
@@ -67,53 +65,20 @@ public class DataBaseController implements DataBaseInterface {
         }
         return f;
 
-//        try {
-//            sqlStatement = sqlConnection.createStatement();
-//            String command = "SELECT * FROM users WHERE nickname = \'" + user.getNickname() + "\';";
-//            ResultSet resultSet = sqlStatement.executeQuery(command);
-//            //resultSet.first();
-//
-//           if(!resultSet.next()) return false;
-//            if (resultSet.getString("passwd").equals(user.getPasswd()) )
-//            {
-//                resultSet.close();
-//                sqlStatement.close();
-//                sqlConnection.commit();
-//                return true;
-//            }
-//            resultSet.close();
-//            sqlStatement.close();
-//            sqlConnection.commit();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-//
-//        return false;
+
     }
 
     @Override
     public boolean addUser(UserInf user) {
         String command = "SELECT add_user(\'" + user.getId() + "\', \'" + user.getNickname() + "\', \'" + user.getPasswd() + "\');";
         return executeCommand(command);
-//        if(checkUserInf(user)) {
-//            return false;
-//        }
-//        String command = "INSERT INTO users VALUES (";
-//        int id_code = ((user.getNickname().hashCode()) % 10000);
-//        command = command + id_code  + ", \'" + user.getNickname() + "\', \'" + user.getPasswd() + "\');";
-//        return executeUpdateCommand(command);
     }
 
     @Override
     public boolean addGroup(int id, int admin, String name) {
         String command  = " SELECT add_group(\'" + id +"\', \'" + name + "\', \'" + admin + "\');";
         return  executeCommand(command);
-//        if(checkGroup(id))  return false;
-//        String command = "INSERT INTO groupsusers VALUES (";
-//        //int id_code = ((user.getNickname().hashCode()) % 10000);
-//    command = command + id  + ", \'" + name + "\', " + admin + ", \'{"+ admin +"}\');";
-//        return executeUpdateCommand(command);
+
 }
 
     @Override
@@ -135,28 +100,6 @@ public class DataBaseController implements DataBaseInterface {
         }
         return f;
 
-//        try {
-//            sqlStatement = sqlConnection.createStatement();
-//            String command = "SELECT * FROM groupsusers WHERE id_code = " + id + ";";
-//            ResultSet resultSet = sqlStatement.executeQuery(command);
-//            //resultSet.first();
-//            //if(!resultSet.next()) return false;
-//            if(!resultSet.next()) {
-//                resultSet.close();
-//                sqlStatement.close();
-//               sqlConnection.commit();
-//                return false;
-//            }
-//
-//            resultSet.close();
-//            sqlStatement.close();
-//            sqlConnection.commit();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-//
-//        return true;
     }
 
     @Override
@@ -178,40 +121,12 @@ public class DataBaseController implements DataBaseInterface {
         }
         return f;
 
-//        //SELECT * FROM groupsusers
-//        //WHERE id_code = 1234 --group
-//        //AND 2524 = ANY (players);
-//        try {
-//            sqlStatement = sqlConnection.createStatement();
-//            String command = "SELECT * FROM groupsusers WHERE id_code = " + id_group + " AND " + id_user + " = ANY (players);";
-//            ResultSet resultSet = sqlStatement.executeQuery(command);
-//            //resultSet.first();
-//
-//            if(!resultSet.next()) {
-//                resultSet.close();
-//                sqlStatement.close();
-//                sqlConnection.commit();
-//                return false;
-//            }
-//
-//            resultSet.close();
-//            sqlStatement.close();
-//            sqlConnection.commit();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//        return true;
     }
 
     @Override
     public boolean addTOGroup(int id, int newUser) {
         openConnection();
         String command = " SELECT FROM add_to_group(\'" + id + "\', \'" + newUser + "\');";
-
-  //      //UPDATE groupsusers SET players = (Select players FROM groupsusers where id_code = 1234)||2524 Where id_code = 1234;
-  //      String command = "UPDATE groupsusers SET players = (Select players FROM groupsusers where id_code = ";
-  //      command = command + id + ")||" + newUser + " Where id_code =" + id + ";";
         return executeCommand(command);
     }
 
@@ -234,42 +149,12 @@ public class DataBaseController implements DataBaseInterface {
         return f;
     }
 
-//    @Override
-//    public ArrayList<UserInf> getGroupMembers(int id) {
-//        openConnection();
-//        ArrayList<UserInf> users = new ArrayList<>();
-//        try {
-//            sqlStatement = sqlConnection.createStatement();
-//            String command = "SELECT * FROM get_group_members(\'" + id + "\');";
-//            ResultSet resultSet = sqlStatement.executeQuery(command);
-//            while (resultSet.next()) {
-//
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//
-//
-////        String command = "UPDATE groupsusers SET players = \'{";
-////    for (UserInf user : users) {
-////        command  = command + user.getId() + ", ";
-////    }
-////    command = command.substring(0,command.length() - 2);
-////    command += "}\' Where id_code = " + id + ";";
-////     return executeUpdateCommand(command);
-//    }
-
     @Override
     public boolean changeAdmin(int id, int newAdmin) {
         String command = "SELECT change_admin(\'" + id + "\', \'" + newAdmin + "\');";
         return executeCommand(command);
     }
 
-    @Override
-    public boolean changeUserInf(UserInf user) {
-        //TODO подумать над жтим
-        return false;
-    }
 
     @Override
     public String[] getGroupInf(int gid) {

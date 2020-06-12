@@ -48,12 +48,10 @@ public class ChatServer implements TCPConnectionListener {
     connections.add(tcpConnection);
    users.add(newUser);
    tcpConnection.setUser(newUser);
-    //sendToAllClients("Client Connected: " + tcpConnection);
   }
 
   @Override
   public synchronized void onReceiveString(TCPConnection tcpConnection, String value) {
-     //sendToAllClients(value);
     System.out.println("NEW MSG");
     commands command = commandsController.parseMSG(value);
     if (command == commands.EXIT) {
@@ -178,14 +176,12 @@ public class ChatServer implements TCPConnectionListener {
     }
 
     for (UserInf userInf : gr) {
-      //
         userInf.getTcpConnection().sendMsg(commands.returnCommand(commands.SEND_GROUP) + "@" + msg);
     }
   }
 
   private void newGroup(TCPConnection tcpConnection, String inf[]) { //name@id_adm
     System.out.println("NEW GROUP " + inf[0]);
-   //TODO check this:
     if (groups.addGroup(groups.getGroupId(inf[0]), tcpConnection.getUser(), inf[0])) {
       tcpConnection.sendMsg(commands.returnCommand(commands.GROUP_NEW) + "@NewGroupCreated");
     } else {
@@ -214,7 +210,6 @@ public class ChatServer implements TCPConnectionListener {
 
   }
   private void rollME(TCPConnection tcpConnection, String formula){
-      //TODO добавить броски с помехой/преимуществом а также отсылку в группу
 
     String[] parts = formula.split("@");
     System.out.println(parts[0]);
@@ -310,7 +305,6 @@ public class ChatServer implements TCPConnectionListener {
      return;
    };
    DataBase.closeConnection();
-   // String[] inf = msg.split("@");
     curUser.setNickname(inf[0]);
     curUser.setPasswd(inf[1]);
     if(!DataBase.checkUserInf(curUser)){
